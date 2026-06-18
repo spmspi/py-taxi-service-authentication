@@ -1,6 +1,6 @@
 <ul class="button">
   {% if user.is_authenticated %}
-    <li>User: {{ user.get_username }}</li>
+    <li>User: <a href="{% url 'taxi:driver-detail' pk=user.id %}">{{ user.get_username }}</a></li>
     <li><form action="{% url 'logout' %}" method="post" style="display: inline;">
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ request.path }}">
